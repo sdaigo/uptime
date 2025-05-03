@@ -4,7 +4,7 @@ pre-commit:
   commands:
     lint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: npx biome check {staged_files} --apply
+      run: npx biome check {staged_files} --write
     format:
       glob: "*.{js,ts,jsx,tsx,json}"
       run: npx biome format {staged_files} --write
