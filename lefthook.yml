@@ -1,0 +1,10 @@
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx biome check {staged_files} --apply
+    format:
+      glob: "*.{js,ts,jsx,tsx,json}"
+      run: npx biome format {staged_files} --write

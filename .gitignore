@@ -1,6 +1,28 @@
+node_modules
+.DS_Store
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# encore
 .encore
 encore.gen.go
 encore.gen.cue
 /.encore
-node_modules
 /encore.gen
+
+# prisma
+**/generated
+
+# Next.js build output
+.next
+out
+
+# Logs
+logs
+*.log
+npm-debug.log*
