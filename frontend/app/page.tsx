@@ -1,9 +1,9 @@
 "use client";
 
+import Client, { type monitor, site } from "@/app/lib/client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import Client, { monitor, site } from "@/app/lib/client";
-import { FC, useEffect, useState } from "react";
 import { DateTime } from "luxon";
+import { type FC, useEffect, useState } from "react";
 
 function App() {
   const [baseURL, setBaseURL] = useState("");
@@ -54,7 +54,8 @@ const SiteList: FC<{ client: Client }> = ({ client }) => {
 
   if (isLoading) {
     return <div>Loading...</div>;
-  } else if (error) {
+  }
+  if (error) {
     return <div className="text-red-600">{(error as Error).message}</div>;
   }
 
@@ -93,7 +94,7 @@ const SiteList: FC<{ client: Client }> = ({ client }) => {
                       scope="col"
                       className="relative py-3.5 pl-3 pr-4 sm:pr-6"
                     >
-                      <span className="sr-only"></span>
+                      <span className="sr-only" />
                     </th>
                   </tr>
                 </thead>

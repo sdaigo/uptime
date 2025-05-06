@@ -1,5 +1,8 @@
 {
   "$schema": "https://encore.dev/schemas/infra.schema.json",
+  "secrets": {
+    "SlackWebhookURL": { "$env": "SLACK_WEBHOOK_URL" }
+  },
   "sql_servers": [
     {
       "host": "postgres:5432",
@@ -11,6 +14,17 @@
         "site": {
           "username": "postgres",
           "password": { "$env": "DB_PASSWORD" }
+        }
+      }
+    }
+  ],
+  "pubsub": [
+    {
+      "type": "nsq",
+      "hosts": "nsq.myencoreapp.com:4150",
+      "topics": {
+        "uptime-transition": {
+          "name": "uptime-transition"
         }
       }
     }
